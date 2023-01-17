@@ -1,4 +1,15 @@
-from functions import getPrice
-USDC_WETH = "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640"
+#stopwatch start
+from datetime import datetime
+start = datetime.timestamp(datetime.now())
 
-print(getPrice(USDC_WETH))
+#imports
+from contracts import USDC_WETH
+from functions import getCurrentBlock, getTokentxns, getPrice
+
+#run
+print("Current ETH price: $" + str(getPrice(USDC_WETH)))
+
+#stopwatch finish
+finish = datetime.timestamp(datetime.now())
+duration = round(finish - start,3)
+print("Time to run: " + str(duration) + " seconds")
